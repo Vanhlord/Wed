@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Giải trí 😎</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('https://i.pinimg.com/564x/c6/dc/8c/c6dc8c2764bf1a42b11e97eb095a9593.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      color: #fff;
+    }
+    input[type="password"] {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      width: 200px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      border-radius: 8px;
+      border: none;
+      background-color: #ff69b4;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Nhập mật khẩu để vào 🎉</h2>
+    <input type="password" id="password" placeholder="Mật khẩu...">
+    <button onclick="checkPassword()">Vào</button>
+    <p id="error-text" style="color: #ff8080; margin-top: 10px;"></p>
+
+  </div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById('password').value;
+      const errorText = document.getElementById('error-text');
+  
+      if (password === '1234') {
+        window.location.href = 'trang-giai-tri.html';
+      } else {
+        errorText.textContent = 'Sai mật khẩu rồi!';
+      }
+    }
+  </script>
+  

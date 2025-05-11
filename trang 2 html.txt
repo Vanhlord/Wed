@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bạn có thích tôi không?</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fhoanghamobile.com%2Ftin-tuc%2Fhinh-anh-de-thuong%2F&psig=AOvVaw1Fv7oCmS6k2u12lsMfgFVe&ust=1747054895439000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKis6-e8m40DFQAAAAAdAAAAABAJ');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Arial', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .question-box {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      position: relative;
+      width: 350px;
+      height: 100px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      padding: 10px 25px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      width: 100px;
+      position: absolute;
+      bottom: 20px;
+    }
+
+    .yes-btn {
+      background-color: #4CAF50;
+      color: white;
+      left: 60px;
+    }
+
+    .no-btn {
+      background-color: #f44336;
+      color: white;
+      right: 60px;
+    }
+
+    .popup {
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffdd57;
+      padding: 15px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -10px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="question-box">
+    <div class="popup" id="popup">Tui biết mà~ 😚💖</div>
+    <h1>Bạn có thích tôi không? 🥺</h1>
+    <button class="btn yes-btn" id="yesBtn">Có</button>
+    <button class="btn no-btn" id="noBtn">Không</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const popup = document.getElementById('popup');
+
+    function moveButton(button) {
+      const box = document.querySelector('.question-box');
+      const maxX = box.offsetWidth - button.offsetWidth;
+      const maxY = box.offsetHeight - button.offsetHeight;
+
+      const randX = Math.floor(Math.random() * maxX) - (maxX / 2);
+      const randY = Math.floor(Math.random() * maxY) - (maxY / 2);
+
+      button.style.transform = `translate(${randX}px, ${randY}px)`;
+    }
+
+    noBtn.addEventListener('mouseover', () => {
+      moveButton(noBtn);
+    });
+
+    noBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      moveButton(noBtn);
+    });
+
+    yesBtn.addEventListener('click', () => {
+      popup.style.display = 'block';
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 2000);
+    });
+  </script>
+
+</body>
+</html>
+ 
